@@ -1,7 +1,6 @@
 (ns fetch.core
   (:require [goog.net.XhrIo :as xhr]
             [clojure.string :as string]
-            [fetch.util :as util]
             [cljs.reader :as reader]
             [goog.events :as events]
             [goog.Uri.QueryData :as query-data]
@@ -18,7 +17,7 @@
     :else ["GET" route]))
 
 (defn ->data [d]
-  (let [cur (util/clj->js d)
+  (let [cur (clj->js d)
         query (query-data/createFromMap (structs/Map. cur))]
     (str query)))
 
@@ -35,4 +34,4 @@
         callback (->callback callback)]
     (when callback
       (events/listen req goog.net.EventType/COMPLETE #(callback req)))
-    (. req (send uri method data (when opts (util/clj->js opts))))))
+    (. req (send uri method data (when opts (clj->js opts))))))

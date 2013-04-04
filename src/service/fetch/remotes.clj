@@ -1,5 +1,4 @@
-(ns noir.fetch.remotes
-  (:use [noir.core :only [defpage]]))
+(ns service.fetch.remotes)
 
 (def remotes (atom {}))
 
@@ -26,11 +25,7 @@
        :body (pr-str result)})
     {:status 404}))
 
-(defn wrap-remotes [handler]
-  (println "*** fetch/wrap-remotes is no longer needed. Please remove it ***")
-  handler)
-
-(defpage [:any "/_fetch"] {:keys [remote params]}
-  (let [params (safe-read params)
-        remote (keyword remote)]
-    (call-remote remote params)))
+;(defpage [:any "/_fetch"] {:keys [remote params]}
+;  (let [params (safe-read params)
+;        remote (keyword remote)]
+;    (call-remote remote params)))

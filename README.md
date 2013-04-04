@@ -1,6 +1,6 @@
 # fetch
 
-A ClojureScript library that makes client/server interaction painless.
+A fork of https://github.com/ibdknox/fetch
 
 ## Usage
 
@@ -27,6 +27,8 @@ Remotes let you make calls to a noir server without having to think about XHR. O
 
 Note that the results we get are real Clojure datastructures and so we use them just as we would in normal Clojure code. No JSON here.
 
+**TBD: update this section!**
+
 The noir side of things is just as simple. All you do is declare a remote using defremote.
 
 ```clojure
@@ -43,7 +45,5 @@ The noir side of things is just as simple. All you do is declare a remote using 
 ```
 
 ## License
-
-Copyright (C) 2012 Chris Granger
 
 Distributed under the Eclipse Public License, the same as Clojure.

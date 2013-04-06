@@ -1,4 +1,5 @@
-(ns service.fetch.remotes)
+(ns fetch.service.remotes
+  (:use [compojure.core]))
 
 (def remotes (atom {}))
 
@@ -25,7 +26,8 @@
        :body (pr-str result)})
     {:status 404}))
 
-;(defpage [:any "/_fetch"] {:keys [remote params]}
-;  (let [params (safe-read params)
-;        remote (keyword remote)]
-;    (call-remote remote params)))
+(defroutes fetch-routes
+  (POST "/_fetch" [params remote]
+    (let [params (safe-read params)
+          remote (keyword remote)]
+      (call-remote remote params))))
